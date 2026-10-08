@@ -1,0 +1,187 @@
+openapi: 3.0.4
+info:
+  title: Book API
+  description: This is a simple REST API perfoming CRUD operations
+  version: 1.0.0
+
+tags:
+  - name: books
+    description: API de gestion des livres
+
+servers:
+  - url: http:localhost:8080/api/v1
+    description: SERVER DEV
+  - url: http:localhost:8081/api/v1
+    description: SERVER PPROD
+
+paths:
+  /books:
+    get:
+      tags: 
+        - books
+      summary: Retourner des livres
+      description: Retourner tous les livres en base de données.
+      operationId: getBooks
+      responses: 
+        "200":
+          description: Les livres sont retournés avec succès.
+          content:
+            application/json: 
+              schema: 
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Book'
+        "500":
+          description: Internal Server Error
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+
+    post:
+      tags: 
+        - books
+      summary: Ajouter un livre.
+      requestBody: 
+        required: true
+        content: 
+          application/json: 
+            schema: 
+              $ref: '#/components/schemas/Book'
+      responses: 
+        "201":
+          description: Livre crée avec succès
+        "500":
+          description: Internal Server Error
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+
+  /books/{id}:
+    get:
+      tags: 
+        - books
+      summary: Retourner un livre au moyen de son ID
+      parameters: 
+        - name: id 
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses: 
+        "200":
+          description: Le livre est retourné avec succès
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Book'
+        "404":
+          description: livre non trouvé
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+
+    put:
+      tags: 
+        - books
+      summary: Mise à jour des information d'un livres
+      requestBody: 
+        required: true
+        content: 
+          application/json: 
+            schema: 
+              $ref: '#/components/schemas/Book'
+      parameters: 
+        - name: id 
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses: 
+        "200":
+          description: Le livre est maj avec succès
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Book'
+        "404":
+          description: livre non trouvé
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+    
+
+    delete:
+      tags: 
+        - books
+      summary: Suppression d'un livres
+      parameters: 
+        - name: id 
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses: 
+        "204":
+          description: Le livre a été supprimé
+        "404":
+          description: livre non trouvé
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/Error'
+
+
+components:
+  schemas: 
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        title:
+          type: string
+          example: "La maison du guet"
+        description:
+          type: string 
+          example: "Lorem ipsum"      
+        publish:
+          type: boolean
+          example: true
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 
+            - 404
+            - 200
+            - 500
+        message:
+          type: string 
+          example: 
+            - Aucun livre trouvé.
+            - Erreur interne de serveur
