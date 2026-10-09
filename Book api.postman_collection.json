@@ -1,0 +1,1482 @@
+{
+  "info": {
+    "_postman_id": "b5688114-69d7-477f-8752-96f538508b6d",
+    "name": "Book api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11666127",
+    "_collection_link": "https://go.postman.co/collection/11666127-b5688114-69d7-477f-8752-96f538508b6d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "orders",
+      "item": [
+        {
+          "name": "submit an order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "let order =  pm.response.json();\r\n\r\npm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n\r\npm.environment.set(\"orderId\", order.orderId);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"bookId\": {{firstBookId}},\r\n    \"customerName\": \"{{$randomUserName}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/orders",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "submit an order - UNAUTHORIZED",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/orders",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "401"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "41"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 07:26:39 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4a2af-315b895a31915938593cec0e;Parent=60f0ccfd43c80635;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "db781f99-4d7f-4df7-86cd-51e1ec45ddd7"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "Ez5bkHeroAMEtAQ="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Error from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 8b820e6cfc5f63c7b2df10a99275f0e0.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "hnaihwtZssOKkPaRm1QimZOedxqk0POi4Jehe6Wdsg41i-Z8IpJNXA=="
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"Missing Authorization header.\"\n}"
+            },
+            {
+              "name": "submit an order - SUCCESS",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"bookId\": {{firstBookId}},\r\n    \"customerName\": \"{{$randomUserName}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/orders",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "201"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "50"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 07:34:01 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4a469-1b4799a72b64c42150bd99e3;Parent=1e0702e5ec0bb537;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "d799b3c3-f096-4953-bfec-7c3f614f0c77"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "Ez6gmEq_IAMElhQ="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 6ed58dfdd07ffb406d0ba07aeb2d7f70.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "UClDV8LzuW98fLsYdLTFnG_T-0J2cUqIkZZ7bzVA9QBNfy_xAnFeTw=="
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"created\": true,\n  \"orderId\": \"qoWvPiiug5pOk3reETwv8\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "return orders",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/orders",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "return orders - SUCCESS",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/orders",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "200"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "457"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 08:03:35 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4ab57-36b909195a687cd7011b9bb1;Parent=7487474de6098e95;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "88b66e05-5c2e-43bf-ab85-6e6f6cff7679"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "Ez-1tETWoAMEAxw="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 a6a7b2d4d97bcbd10c98408bdc90a94c.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "u_GvDkfZLpN1bbHGmQcMukJK0p7b-Kyh3dBd-65sEkGWANTu4AUd0w=="
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": \"LymvYwsiD2FFybGBKNuFY\",\n    \"bookId\": 1,\n    \"customerName\": \"Hellen_Bruen\",\n    \"quantity\": 1,\n    \"timestamp\": 1791272990957\n  },\n  {\n    \"id\": \"XWJYx0s4BzkPsSiDH0R6H\",\n    \"bookId\": 1,\n    \"customerName\": \"Orville.Gottlieb27\",\n    \"quantity\": 1,\n    \"timestamp\": 1791273086651\n  },\n  {\n    \"id\": \"qoWvPiiug5pOk3reETwv8\",\n    \"bookId\": 1,\n    \"customerName\": \"Lester_Weissnat\",\n    \"quantity\": 1,\n    \"timestamp\": 1791272041741\n  },\n  {\n    \"id\": \"rE_XvYHUyStOH8hkEGXgx\",\n    \"bookId\": 1,\n    \"customerName\": \"Casimir.Gerlach\",\n    \"quantity\": 1,\n    \"timestamp\": 1791273453457\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "return an order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n\r\npm.test(\"Order ID matches the expected value\", function () {\r\n    pm.expect(pm.response.json().id).to.equal(pm.environment.get(\"orderId\"));\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/orders/{{orderId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "orders",
+                "{{orderId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "return an order - NOT FOUND",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/orders/{{orderId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "404"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "51"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 08:15:11 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4ae0f-1f4fdc114d97271e216e7f9f;Parent=3d2ed57ad4d3e16b;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "56804ba9-c6a9-4dfa-8a37-aeed780eb7a9"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "E0AifFW1IAMEkSA="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Error from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 d2b2dad12510bdcf43bcc584549b9c4e.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "1Rnc9C696f82vfMFo3ZFyd89FH2KiGXUMWx8dhW-IyMIUsZu1ovKiw=="
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"No order with id KCPHkg-deojpK4VkeukJA.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "update order infos",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {\r\n    pm.response.to.have.status(204);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"customerName\": \"{{$randomFullName}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/orders/{{orderId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "orders",
+                "{{orderId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "update order infos - SUCCESS",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"customerName\": \"{{$randomUserName}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/orders/{{orderId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "204"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 08:24:25 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4b039-774fe2597af075cd3f4ad6dd;Parent=12d9ca9210ed1cb3;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "0e3e98bb-5f00-451b-8e39-859112844349"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "E0B5HGajIAMEqQQ="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 b4b67c4894b9140bc1cdb48058ca5f04.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "wUfZb6415zYtsiYN0Q9Uh9sIiaIYwcS2-9JMqL6Oh_JwhvHAhqEngQ=="
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "update order infos - NOT FOUND",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"customerName\": \"{{$randomUserName}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/orders/598",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "598"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "404"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "33"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 08:27:05 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4b0d9-5622cfc015ddf0b76bab66df;Parent=39907b80c1e37637;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "d9ae78a5-72c4-4c85-af17-e3d039606e2f"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "E0CSHGV3IAMEacA="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Error from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 ec5aa30b4881c660c0f4daebfb0bce48.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "lUelfjmc0WE4ADNpRNtFfgJtZk_M1S8UDN3e95VpNRfsjW6XMapV-Q=="
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"No order with id 598.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete book",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {\r\n    pm.response.to.have.status(204);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/orders/{{orderId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "orders",
+                "{{orderId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete book - SUCCESS",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/orders/{{orderId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "204"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 08:32:40 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4b228-583c574c2113adcc35ed67a0;Parent=07cf5e5217684240;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "eacc116b-ac0a-48ed-8ab4-817b09545d70"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "E0DGYEdLoAMEWZA="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 d9d04e236953586432ec9a58f20c1ff6.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "Xwh7sWhlQmhSQ-J-uJqL-NYmuH70fBh1hf3UrpC9-UTZjwRNUQdMFw=="
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            },
+            {
+              "name": "delete book - NOT FOUND",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/orders/{{orderId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "404"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "51"
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Oct 2026 08:33:21 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac4b251-1fb94d5b62b69ba428893e9e;Parent=15b2f8da8c4b2c17;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "bca228b4-8260-4b62-bec1-509bcd334d8b"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "E0DM4E9vIAMEXtQ="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Error from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 d9d04e236953586432ec9a58f20c1ff6.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "6MM-cD5O-PNdvz6OM2gGKrPovB6Rlmr6-rXcE9_FznBLPK0-YxQSkg=="
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"No order with id 9i4fzAdh__SBzBkGaPkZk.\"\n}"
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{accessToken}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "books",
+      "item": [
+        {
+          "name": "return books",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "let books = pm.response.json();\r\n\r\npm.test(\"Liste non vide\", function(){\r\n    pm.expect(books.length).to.be.above(0);\r\n});\r\n\r\n// stocker l'id du premier livre dans une variable\r\npm.environment.set(\"firstBookId\",books[0].id);\r\n\r\n// afficher la liste des livres dans la console pour vérification\r\nconsole.log(books)"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/books",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "books"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "non-fiction",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "1",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "return books success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/books",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "books"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "200"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "417"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 05 Oct 2026 14:30:01 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac3b469-0825903f4b26e16959e75bfd;Parent=383bfc58ebd04356;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "ce4b205e-b0bb-455a-ad36-e7c0fe3f751c"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "ExkgjEOwIAMETLA="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 47661a8106ff2eb7af6901465c48ea48.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "JZMXwnoAI6bMk_eCNm5QrWgBuRFTHolUhohwIhFvO6hTeeAfYpvwvA=="
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"The Russian\",\n    \"type\": \"fiction\",\n    \"available\": true\n  },\n  {\n    \"id\": 3,\n    \"name\": \"The Vanishing Half\",\n    \"type\": \"fiction\",\n    \"available\": true\n  },\n  {\n    \"id\": 4,\n    \"name\": \"The Midnight Library\",\n    \"type\": \"fiction\",\n    \"available\": true\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Viscount Who Loved Me\",\n    \"type\": \"fiction\",\n    \"available\": true\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Just as I Am\",\n    \"type\": \"non-fiction\",\n    \"available\": false\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Untamed\",\n    \"type\": \"non-fiction\",\n    \"available\": true\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "return book by Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "let book = pm.response.json();\r\n\r\npm.test(\"Détails du livre OK\", function() {\r\n    pm.expect(book.id).to.eql(pm.environment.get(\"firstBookId\"));\r\n});\r\n\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/books/{{firstBookId}}",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "books",
+                "{{firstBookId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "return book by Id success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/books/{{firstBookId}}",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "books",
+                    "{{firstBookId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "200"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "316"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 05 Oct 2026 14:49:33 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac3b8fd-6d553c3a6cb3db9802210aa1;Parent=3a7e32e5a2fa74a5;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "73c424ab-e50e-4cad-8b4a-6e4660c88e83"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "ExnXuEWooAMEN4A="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Miss from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 d9d04e236953586432ec9a58f20c1ff6.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "h-7xGePyLq_HBesEe-CuiWUny3NGOCX4O_wUuL3YCmUuWVPgMSdPgw=="
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 1,\n  \"entityType\": \"BOOK\",\n  \"available\": true,\n  \"timestamp\": 1752239490804,\n  \"created\": \"2025-07-11T13:11:30.804Z\",\n  \"isbn\": \"1780899475\",\n  \"GSI1SK\": \"BOOK#1\",\n  \"name\": \"The Russian\",\n  \"current-stock\": 12,\n  \"GSI1PK\": \"TYPE#fiction\",\n  \"price\": 12.98,\n  \"PK\": \"BOOK#1\",\n  \"author\": \"James Patterson and James O. Born\",\n  \"type\": \"fiction\",\n  \"SK\": \"METADATA\"\n}"
+            },
+            {
+              "name": "return book by Id - NOT FOUND",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/books/85",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "books",
+                    "85"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": ":status",
+                  "value": "404"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "content-length",
+                  "value": "30"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 05 Oct 2026 14:51:09 GMT"
+                },
+                {
+                  "key": "x-amzn-trace-id",
+                  "value": "Root=1-6ac3b95d-59627a0b43d8295164b2442f;Parent=1244079f6dbe9a04;Sampled=0;Lineage=1:9ee0f5ed:0"
+                },
+                {
+                  "key": "x-amzn-requestid",
+                  "value": "b25bf569-fccf-4c6c-bbcb-d67d3e831116"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+                },
+                {
+                  "key": "x-amz-apigw-id",
+                  "value": "ExnmvG7yIAMEHxg="
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+                },
+                {
+                  "key": "x-cache",
+                  "value": "Error from cloudfront"
+                },
+                {
+                  "key": "via",
+                  "value": "1.1 34cdeee86318aba97d53c80c0b36ec20.cloudfront.net (CloudFront)"
+                },
+                {
+                  "key": "x-amz-cf-pop",
+                  "value": "CDG50-P6"
+                },
+                {
+                  "key": "x-amz-cf-id",
+                  "value": "niNvOgoMYROH35TcRcV18GRskRHEpyaEF-Pbi9U4YtoGoSyOO_z1Gg=="
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"error\": \"No book with id 85\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "return status",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"API opérationnelle\", function(){\r\n    pm.expect(pm.response.code).to.eql(200);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/status",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "status"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "return status OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://simple-books-api.click/status",
+              "protocol": "https",
+              "host": [
+                "simple-books-api",
+                "click"
+              ],
+              "path": [
+                "status"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": ":status",
+              "value": "200"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "content-length",
+              "value": "15"
+            },
+            {
+              "key": "date",
+              "value": "Mon, 05 Oct 2026 14:08:32 GMT"
+            },
+            {
+              "key": "x-amzn-trace-id",
+              "value": "Root=1-6ac3af60-57209d63232fe3685e0e3ef2;Parent=75176bd5c3707c17;Sampled=0;Lineage=1:9ee0f5ed:0"
+            },
+            {
+              "key": "x-amzn-requestid",
+              "value": "bc3863c9-2a52-459b-95ef-69f310a04bdb"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+            },
+            {
+              "key": "x-amz-apigw-id",
+              "value": "ExhXOFTwIAMEDsA="
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+            },
+            {
+              "key": "x-cache",
+              "value": "Miss from cloudfront"
+            },
+            {
+              "key": "via",
+              "value": "1.1 b05d34b1a8397548a78f19a4838e1860.cloudfront.net (CloudFront)"
+            },
+            {
+              "key": "x-amz-cf-pop",
+              "value": "CDG50-P6"
+            },
+            {
+              "key": "x-amz-cf-id",
+              "value": "95oWhAuEmukVW1xj4pDJdvJIvw_PPVajbgq2ApcHauiPXI1kv_ChiA=="
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"status\": \"OK\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "authentication",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "let data = pm.response.json();\r\n\r\npm.test(\"Token reçu\", function(){\r\n    pm.expect(data.accessToken).to.exist;\r\n});\r\n\r\n// Stocker le token dans la collectionVariables\r\npm.environment.set(\"accessToken\", data.accessToken);\r\n\r\npm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"clientName\": \"{{$randomUserName}}\",\r\n    \"clientEmail\": \"{{$randomEmail}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api-clients/",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api-clients",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "authentication - CONFLICT",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"clientName\": \"Valentin\",\r\n    \"clientEmail\": \"valentin@example.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api-clients/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api-clients",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": ":status",
+              "value": "409"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "content-length",
+              "value": "65"
+            },
+            {
+              "key": "date",
+              "value": "Mon, 05 Oct 2026 14:55:34 GMT"
+            },
+            {
+              "key": "x-amzn-trace-id",
+              "value": "Root=1-6ac3ba66-08873137642ee853693bf4bc;Parent=3f2e43b2c7d704e5;Sampled=0;Lineage=1:9ee0f5ed:0"
+            },
+            {
+              "key": "x-amzn-requestid",
+              "value": "dd7d5b92-879e-4d8f-9a46-0156b5e1a577"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+            },
+            {
+              "key": "x-amz-apigw-id",
+              "value": "ExoQCGKDoAMEJaQ="
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+            },
+            {
+              "key": "x-cache",
+              "value": "Error from cloudfront"
+            },
+            {
+              "key": "via",
+              "value": "1.1 aa9f58294a12ad740a4864bf7ef145ac.cloudfront.net (CloudFront)"
+            },
+            {
+              "key": "x-amz-cf-pop",
+              "value": "CDG50-P6"
+            },
+            {
+              "key": "x-amz-cf-id",
+              "value": "TIeqvangiCnOdOMMySWhtRKNUVzAWBa9wO9wHHPZckGTDrnUW15U_A=="
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"API client already registered. Try a different email.\"\n}"
+        },
+        {
+          "name": "authentication - SUCCESS",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"clientName\": \"{{$randomUserName}}\",\r\n    \"clientEmail\": \"{{$randomEmail}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api-clients/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api-clients",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": ":status",
+              "value": "201"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "content-length",
+              "value": "82"
+            },
+            {
+              "key": "date",
+              "value": "Mon, 05 Oct 2026 14:57:52 GMT"
+            },
+            {
+              "key": "x-amzn-trace-id",
+              "value": "Root=1-6ac3baf0-57ac559679f7658a65d25c42;Parent=5d0ec894239e6013;Sampled=0;Lineage=1:9ee0f5ed:0"
+            },
+            {
+              "key": "x-amzn-requestid",
+              "value": "00d64fea-e9fb-4fa3-bb77-373d76c49053"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "key": "access-control-allow-headers",
+              "value": "Content-Type, Authorization, X-Amz-Date, X-Api-Key, X-Amz-Security-Token"
+            },
+            {
+              "key": "x-amz-apigw-id",
+              "value": "ExolrGELIAMEEIQ="
+            },
+            {
+              "key": "access-control-allow-methods",
+              "value": "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+            },
+            {
+              "key": "x-cache",
+              "value": "Miss from cloudfront"
+            },
+            {
+              "key": "via",
+              "value": "1.1 dcbce3fb64ed8e3e3736dd5e689197b2.cloudfront.net (CloudFront)"
+            },
+            {
+              "key": "x-amz-cf-pop",
+              "value": "CDG50-P6"
+            },
+            {
+              "key": "x-amz-cf-id",
+              "value": "fMSqYT5VTdG6fq0j0CfY-PUNKMbLr7Fz6TbhRW3Lsw52VWAcIqUUwA=="
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"accessToken\": \"032b41138b7dc596d66db5239802e0e9be41558a5762a1837bfba08dde50fb18\"\n}"
+        }
+      ]
+    }
+  ]
+}

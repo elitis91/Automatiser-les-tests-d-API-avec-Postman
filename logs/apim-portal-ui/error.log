@@ -1,0 +1,63 @@
+2026/10/06 13:54:54 [notice] 1#1: using the "epoll" event method
+2026/10/06 13:54:54 [notice] 1#1: nginx/1.25.1
+2026/10/06 13:54:54 [notice] 1#1: built by gcc 12.2.1 20220924 (Alpine 12.2.1_git20220924-r4) 
+2026/10/06 13:54:54 [notice] 1#1: OS: Linux 6.18.40.1-microsoft-standard-WSL2
+2026/10/06 13:54:54 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/10/06 13:54:54 [notice] 1#1: start worker processes
+2026/10/06 13:54:54 [notice] 1#1: start worker process 14
+2026/10/06 13:54:54 [notice] 1#1: start worker process 15
+2026/10/06 13:54:54 [notice] 1#1: start worker process 16
+2026/10/06 13:54:54 [notice] 1#1: start worker process 17
+2026/10/06 13:54:54 [notice] 1#1: start worker process 18
+2026/10/06 13:54:54 [notice] 1#1: start worker process 19
+2026/10/06 13:54:54 [notice] 1#1: start worker process 20
+2026/10/06 13:54:54 [notice] 1#1: start worker process 21
+2026/10/06 18:36:23 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2026/10/06 18:36:23 [notice] 15#15: gracefully shutting down
+2026/10/06 18:36:23 [notice] 16#16: gracefully shutting down
+2026/10/06 18:36:23 [notice] 17#17: gracefully shutting down
+2026/10/06 18:36:23 [notice] 14#14: gracefully shutting down
+2026/10/06 18:36:23 [notice] 21#21: gracefully shutting down
+2026/10/06 18:36:23 [notice] 16#16: exiting
+2026/10/06 18:36:23 [notice] 17#17: exiting
+2026/10/06 18:36:23 [notice] 15#15: exiting
+2026/10/06 18:36:23 [notice] 14#14: exiting
+2026/10/06 18:36:24 [notice] 18#18: gracefully shutting down
+2026/10/06 18:36:24 [notice] 19#19: gracefully shutting down
+2026/10/06 18:36:23 [notice] 20#20: gracefully shutting down
+2026/10/06 18:36:23 [notice] 21#21: exiting
+2026/10/06 18:36:23 [notice] 17#17: exit
+2026/10/06 18:36:23 [notice] 14#14: exit
+2026/10/06 18:36:24 [notice] 19#19: exiting
+2026/10/06 18:36:23 [notice] 21#21: exit
+2026/10/06 18:36:23 [notice] 15#15: exit
+2026/10/06 18:36:24 [notice] 19#19: exit
+2026/10/06 18:36:23 [notice] 16#16: exit
+2026/10/06 18:36:23 [notice] 20#20: exiting
+2026/10/06 18:36:23 [notice] 20#20: exit
+2026/10/06 18:36:24 [notice] 18#18: exiting
+2026/10/06 18:36:24 [notice] 18#18: exit
+2026/10/06 18:36:24 [notice] 1#1: signal 17 (SIGCHLD) received from 17
+2026/10/06 18:36:24 [notice] 1#1: worker process 17 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: worker process 14 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: worker process 15 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: worker process 16 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: worker process 18 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: worker process 19 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: worker process 20 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: worker process 21 exited with code 0
+2026/10/06 18:36:24 [notice] 1#1: exit
+2026/10/07 06:25:55 [notice] 1#1: using the "epoll" event method
+2026/10/07 06:25:55 [notice] 1#1: nginx/1.25.1
+2026/10/07 06:25:55 [notice] 1#1: built by gcc 12.2.1 20220924 (Alpine 12.2.1_git20220924-r4) 
+2026/10/07 06:25:55 [notice] 1#1: OS: Linux 6.18.40.1-microsoft-standard-WSL2
+2026/10/07 06:25:55 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/10/07 06:25:55 [notice] 1#1: start worker processes
+2026/10/07 06:25:55 [notice] 1#1: start worker process 16
+2026/10/07 06:25:55 [notice] 1#1: start worker process 17
+2026/10/07 06:25:55 [notice] 1#1: start worker process 18
+2026/10/07 06:25:55 [notice] 1#1: start worker process 19
+2026/10/07 06:25:55 [notice] 1#1: start worker process 20
+2026/10/07 06:25:55 [notice] 1#1: start worker process 21
+2026/10/07 06:25:55 [notice] 1#1: start worker process 22
+2026/10/07 06:25:55 [notice] 1#1: start worker process 23
